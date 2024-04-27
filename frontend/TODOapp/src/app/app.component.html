@@ -1,0 +1,25 @@
+<main class="main">
+  <h1>Mozzila Dev - My TODO List</h1>
+
+  <input
+    class="lg-text-input"
+    (keydown.enter)="
+      CREATE_task(taskDescription.value); taskDescription.value = ''
+    "
+    placeholder="Digite sua tarefa aqui..."
+    #taskDescription
+  />
+  <button class="btn-primary" (click)="CREATE_task(taskDescription.value)">
+    Create Task
+  </button>
+
+  <ul>
+    <li *ngFor="let task of arrayTasks">
+      <app-item
+        [task]="task"
+        (taskToDelete)="DELETE_task(task)"
+        (updateTask)="UPDATE_task(task)"
+      ></app-item>
+    </li>
+  </ul>
+</main>

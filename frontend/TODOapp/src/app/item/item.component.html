@@ -1,0 +1,35 @@
+<div class="item">
+  <input
+    [id]="task.description"
+    type="checkbox"
+    [checked]="task.status"
+    (change)="task.status = !task.status; updateTask.emit()"
+  />
+  <label [for]="task.description">{{ task.description }}</label>
+  <div *ngIf="!isEditting" class="btn-wrapper">
+    <button class="btn" (click)="isEditting = true">Editar</button>
+    <button class="btn btn-warn" (click)="deleteTask()">Remover</button>
+  </div>
+  <div *ngIf="isEditting">
+    <input
+      class="sm-text-input"
+      #editedItem
+      (keydown.enter)="task.description = editedItem.value; isEditting = false"
+      placeholder="Escreva o novo nome da task
+   aqui"
+    />
+    <div class="btn-wrapper">
+      <button class="btn" (click)="isEditting = false">Cancelar</button>
+      <button
+        class="btn btn-save"
+        (click)="
+          task.description = editedItem.value;
+          isEditting = false;
+          updateTask.emit()
+        "
+      >
+        Salvar
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+1- Ajuda a estruturar e organizar os dados relacionados às tarefas dentro do sistema;
+2- Ler as tarefaVendedors já existentes, possibilitando mostrar em tela, se necessário;
+3- O método construtor executa sempre que instanciamos um objeto e nesse caso, atribuímos valores as variáveis declaradas anteriormente;
+4- Cria uma nova instância de uma tarefa;
+5- Possibilita realizar um loop sobre uma lista de elementos;
+6- A variável tarefaDoLoop representa cada item em uma iteração;
+7- A interpolação foi feita dentro da tag <li> com as chaves duplas e o seu efeito permite acessarmos um determinado valor da lógica do componente;
+8- O método permite criarmos uma nova tarefa e adicioná-la na primeira posição do array de tarefas;
+9- Cada tarefa é um objeto e cada objeto está inserido em um array;
+10- Utilizando o símbolo #
+11- Quando o botão é clicado, ele executa a ação associada, que no caso é o método CREATE_tarefa criado anteriormente;
+12- O styles.css é para estilização global do App, enquanto que o outro é a estilização do próprio componente.
