@@ -14,7 +14,7 @@ export class AppComponent {
   apiURL: string;
 
   constructor(private http: HttpClient) {
-    this.apiURL = 'http://localhost:3000';
+    this.apiURL = 'https://angular-branqs-api.vercel.app/';
     this.READ_tasks();
   }
 
