@@ -1,26 +1,55 @@
-<main class="main">
-  <h1>GABRIEL ANDRADE - RA: 155549</h1>
-  <h1>JOÃO PEDRO TEIXEIRA - RA: 222943</h1>
+<main class="">
+  <header
+    class="bg-[--gray-700] text-white flex flex-col gap-4 w-full p-6 items-center"
+  >
+    <h1 class="text-3xl leading-tight text-[--white]">
+      [TP] TODOList Angular + TailwindCSS
+    </h1>
+    <h2>GABRIEL ANDRADE - RA: 155549 | JOÃO PEDRO TEIXEIRA - RA: 222943</h2>
+    <h2></h2>
+  </header>
 
-  <input
-    class="lg-text-input"
-    (keydown.enter)="
-      CREATE_task(taskDescription.value); taskDescription.value = ''
-    "
-    placeholder="Digite sua tarefa aqui..."
-    #taskDescription
-  />
-  <button class="btn-primary" (click)="CREATE_task(taskDescription.value)">
-    Create Task
-  </button>
+  <div class="flex items-center justify-center gap-2 -mt-7">
+    <input
+      class="flex w-[638px] h-[54px] bg-[--gray-500] text-[--white] rounded-lg drop-shadow-md p-[10px] text-base"
+      (keydown.enter)="
+        CREATE_task(taskDescription.value); taskDescription.value = ''
+      "
+      placeholder="Digite sua tarefa aqui..."
+      #taskDescription
+    />
+    <button
+      class="flex gap-1 items-center justify-center h-[54px] w-[100px] px-2 bg-[--blue-dark] text-[--white] rounded-lg hover:bg-[--blue] transition-colors"
+      (click)="CREATE_task(taskDescription.value)"
+    >
+      Criar tarefa
+    </button>
+  </div>
 
-  <ul>
-    <li *ngFor="let task of arrayTasks">
-      <app-item
-        [task]="task"
-        (taskToDelete)="DELETE_task(task)"
-        (updateTask)="UPDATE_task(task)"
-      ></app-item>
-    </li>
-  </ul>
+  <div>
+    <div
+      *ngIf="arrayTasks.length === 0"
+      class="flex justify-center p-16 mx-auto mt-4 text-[--white] bg-[--gray-500] w-[740px] rounded-lg"
+    >
+      <article class="flex flex-col gap-2 items-center">
+        <ng-icon name="heroClipboard" size="54"></ng-icon>
+        <strong>Você ainda não tem tarefas cadastradas</strong>
+        <span>Crie tarefas e organize seus itens a fazer</span>
+      </article>
+    </div>
+
+    <div
+      class="flex my-4 items-center ring-offset rounded-lg w-[740px] mx-auto"
+    >
+      <ul>
+        <li *ngFor="let task of arrayTasks">
+          <app-item
+            [task]="task"
+            (taskToDelete)="DELETE_task(task)"
+            (updateTask)="UPDATE_task(task)"
+          ></app-item>
+        </li>
+      </ul>
+    </div>
+  </div>
 </main>

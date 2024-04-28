@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index mongodb+srv://gabriel155549:123231@cluster0.qynernd.mongodb.net/tarefasDB?retryWrites=true&w=majority&appName=Cluster0"
   },
   "author": "",
   "license": "ISC",

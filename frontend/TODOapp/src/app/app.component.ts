@@ -14,19 +14,19 @@ export class AppComponent {
   apiURL: string;
 
   constructor(private http: HttpClient) {
-    this.apiURL = 'https://angular-branqs-api.vercel.app/';
+    this.apiURL = 'https://angular-branqs-api.vercel.app';
     this.READ_tasks();
   }
 
   CREATE_task(_description: string) {
     const descriptionTask = new Task(_description, false);
+    _description = '';
     this.http
       .post<Task>(`${this.apiURL}/api/post`, descriptionTask)
       .subscribe((result) => {
         console.log(result);
         this.READ_tasks();
       });
-    _description = '';
   }
 
   READ_tasks() {
