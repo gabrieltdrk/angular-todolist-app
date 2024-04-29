@@ -1,5 +1,6 @@
 <div
-  class="relative bg-[--gray-500] w-[740px] p-3 flex items-center justify-between my-2 rounded-lg group"
+  class="flex flex-col sm:flex-row items-center justify-between relative bg-[--gray-500] m-3 pl-3 rounded-lg w-max-[750px]"
+  [ngClass]="isEditting ? 'h-[100px] sm:h-max' : ''"
 >
   <input
     [id]="task.description"
@@ -9,11 +10,11 @@
     (change)="task.status = !task.status; updateTask.emit()"
   />
   <label
-    class="text-[--white] peer-checked:line-through peer-checked:text-[--gray-300]"
+    class="text-[--white] peer-checked:line-through peer-checked:text-[--gray-300] overflow-auto webk my-3 sm:w-full"
     [for]="task.description"
     >{{ task.description }}</label
   >
-  <div *ngIf="!isEditting" class="flex items-center gap-4">
+  <div *ngIf="!isEditting" class="flex items-center gap-4 p-3">
     <button
       class="flex gap-1 items-center hover:text-[--white]"
       (click)="isEditting = true"
@@ -31,16 +32,16 @@
   </div>
   <div
     *ngIf="isEditting"
-    class="absolute left-0 top-0 flex justify-between w-full items-center"
+    class="flex flex-col sm:flex-row justify-between w-full items-center absolute left-0 z-10"
   >
     <input
-      class="rounded-lg h-11 px-3 bg-[--gray-500] w-full"
+      class="rounded-lg h-11 px-3 bg-[--gray-500] w-full outline"
       [value]="task.description"
       #editedItem
       (keydown.enter)="task.description = editedItem.value; isEditting = false"
       placeholder="Escreva o novo nome da task aqui"
     />
-    <div class="flex items-center gap-4 mx-3">
+    <div class="flex items-center gap-4 mx-3 py-6 z-10 peer">
       <button
         class="flex gap-1 hover:text-[--danger]"
         (click)="isEditting = false"

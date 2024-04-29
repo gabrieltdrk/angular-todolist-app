@@ -1,4 +1,4 @@
-<main class="">
+<main>
   <header
     class="bg-[--gray-700] text-white flex flex-col gap-4 w-full p-6 items-center"
   >
@@ -9,7 +9,7 @@
     <h2></h2>
   </header>
 
-  <div class="flex items-center justify-center gap-2 -mt-7">
+  <div class="flex items-center justify-center gap-2 -mt-7 m-6">
     <input
       class="flex w-[638px] h-[54px] bg-[--gray-500] text-[--white] rounded-lg drop-shadow-md p-[10px] text-base"
       (keydown.enter)="
@@ -26,20 +26,21 @@
     </button>
   </div>
 
-  <div>
+  <div class="flex justify-center text-center">
     <div
       *ngIf="arrayTasks.length === 0"
-      class="flex justify-center p-16 mx-auto mt-4 text-[--white] bg-[--gray-500] w-[740px] rounded-lg"
+      class="p-16 m-6 text-[--white] bg-[--blue] w-full max-w-[750px]"
     >
       <article class="flex flex-col gap-2 items-center">
         <ng-icon name="heroClipboard" size="54"></ng-icon>
-        <strong>Você ainda não tem tarefas cadastradas</strong>
-        <span>Crie tarefas e organize seus itens a fazer</span>
+        <strong>Você ainda não tem tarefas cadastradas.</strong>
+        <span>Crie tarefas e organize seus itens a fazer!</span>
       </article>
     </div>
 
     <div
-      class="flex my-4 items-center ring-offset rounded-lg w-[740px] mx-auto"
+      *ngIf="arrayTasks.length !== 0"
+      class="m-4 ring-offset rounded-lg w-full max-w-[750px] text-left"
     >
       <ul>
         <li *ngFor="let task of arrayTasks">
