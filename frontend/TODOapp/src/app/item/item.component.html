@@ -10,7 +10,7 @@
     (change)="task.status = !task.status; updateTask.emit()"
   />
   <label
-    class="text-[--white] peer-checked:line-through peer-checked:text-[--gray-300] overflow-auto webk my-3 sm:w-full"
+    class="text-[--white] peer-checked:line-through peer-checked:text-[--gray-300] webk my-3 sm:w-full"
     [for]="task.description"
     >{{ task.description }}</label
   >
