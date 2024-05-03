@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'TODOapp';
+  title = 'AI CARAMBA';
 
   arrayTasks: Task[] = [];
   apiURL: string;
